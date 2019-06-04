@@ -33,53 +33,52 @@ void loop() {
   // Bắt đầu đọc dữ liệu nhấn nút từ tay PS2
   ps2.read_gamepad();
   
-  
-  if(ps2.ButtonPressed(PSB_R2))          // Bật tắt chế độ dò line
-    doLine = 1 - doLine;
-  
-  if(doLine) {
-    chayDoLine();
-    Serial.println("doLine ON");
-  }
-  else {
+//  if(ps2.ButtonPressed(PSB_R2))          // Bật tắt chế độ dò line
+//    doLine = 1 - doLine;
+//  
+//  if(doLine) {
+//    chayDoLine();
+//    Serial.println("doLine ON");
+//  }
+//  else {
     // Tiến
     if(ps2.Button(PSB_PAD_UP) && !ps2.Button(PSB_PAD_DOWN) && !ps2.Button(PSB_PAD_LEFT) && !ps2.Button(PSB_PAD_RIGHT)) {             
-      dkDongCo(250, 250);
+      dkDongCo(180, 180);
     }
     // Lùi
     if(!ps2.Button(PSB_PAD_UP) && ps2.Button(PSB_PAD_DOWN) && !ps2.Button(PSB_PAD_LEFT) && !ps2.Button(PSB_PAD_RIGHT)) {             
-      dkDongCo(-250, -250);
+      dkDongCo(-120, -120);
     }
     
     // Quay trái
     if(!ps2.Button(PSB_PAD_UP) && !ps2.Button(PSB_PAD_DOWN) && ps2.Button(PSB_PAD_LEFT) && !ps2.Button(PSB_PAD_RIGHT)) {             
-      dkDongCo(-200, 200);
+      dkDongCo(0, 180);
     }
     // Quay phải
     if(!ps2.Button(PSB_PAD_UP) && !ps2.Button(PSB_PAD_DOWN) && !ps2.Button(PSB_PAD_LEFT) && ps2.Button(PSB_PAD_RIGHT)) {             
-      dkDongCo(200, -200);
+      dkDongCo(180, 0);
     }
     // Cua trái
     if(ps2.Button(PSB_PAD_UP) && !ps2.Button(PSB_PAD_DOWN) && ps2.Button(PSB_PAD_LEFT) && !ps2.Button(PSB_PAD_RIGHT)) {             
-      dkDongCo(0, 250);
+      dkDongCo(40, 150);
     }
     // Cua phải
     if(ps2.Button(PSB_PAD_UP) && !ps2.Button(PSB_PAD_DOWN) && !ps2.Button(PSB_PAD_LEFT) && ps2.Button(PSB_PAD_RIGHT)) {            
-      dkDongCo(250, 0);
+      dkDongCo(150, 40);
     }
     // Lùi phải
     if(!ps2.Button(PSB_PAD_UP) && ps2.Button(PSB_PAD_DOWN) && !ps2.Button(PSB_PAD_LEFT) && ps2.Button(PSB_PAD_RIGHT)) {            
-      dkDongCo(-250, 0);
+      dkDongCo(-120, -40);
     }
     // Lùi trái
     if(!ps2.Button(PSB_PAD_UP) && ps2.Button(PSB_PAD_DOWN) && ps2.Button(PSB_PAD_LEFT) && !ps2.Button(PSB_PAD_RIGHT)) {            
-      dkDongCo(0, -250);
+      dkDongCo(-40, -120);
     }
     // Dừng khi nhả các nút
     if(!ps2.Button(PSB_PAD_UP) && !ps2.Button(PSB_PAD_DOWN) && !ps2.Button(PSB_PAD_LEFT) && !ps2.Button(PSB_PAD_RIGHT)) {
       dkDongCo(0, 0);
     }
-  }
+//  }
 }
 
 void chayDoLine() {
